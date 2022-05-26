@@ -20,6 +20,7 @@ public class MyGlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public RestResp handleException(Exception e) {
+        // 获得根异常字符串，记录到数据库日志表中
         logService.log(ExceptionUtil.getRootCauseMessage(e));
         return RestResp.fail(e.getMessage());
     }
