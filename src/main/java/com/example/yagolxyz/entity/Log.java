@@ -10,7 +10,4 @@ import lombok.EqualsAndHashCode;
 @Data
 public class Log extends BaseEntity {
     String content;
-    String classInvoker;
-    String methodInvoker;
-
 }

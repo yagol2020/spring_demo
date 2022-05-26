@@ -6,5 +6,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface LogService extends IService<Log> {
-    boolean log(String message,String classInvoker,String methodInvoker);
+    boolean log(String message);
 }

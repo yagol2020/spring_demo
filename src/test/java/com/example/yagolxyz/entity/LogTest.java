@@ -14,8 +14,6 @@ public class LogTest extends YagolxyzApplicationTests {
     @Test
     void testLogBaseMapper() {
         Log log = new Log();
-        log.setClassInvoker(getClass().getName());
-        log.setMethodInvoker(getClass().getName());
         log.setContent("hi");
         logMapper.insert(log);
         List<Log> logs = logMapper.selectList(null);

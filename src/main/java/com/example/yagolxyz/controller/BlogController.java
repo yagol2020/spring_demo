@@ -1,6 +1,5 @@
 package com.example.yagolxyz.controller;
 
-import com.example.yagolxyz.entity.Blog;
 import com.example.yagolxyz.entity.Category;
 import com.example.yagolxyz.service.BlogService;
 import com.example.yagolxyz.vo.BlogVo;

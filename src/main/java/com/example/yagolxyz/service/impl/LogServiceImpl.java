@@ -13,11 +13,9 @@ import org.springframework.stereotype.Service;
 public class LogServiceImpl extends ServiceImpl<LogMapper, Log> implements LogService {
     
     @Override
-    public boolean log(String message, String classInvoker, String methodInvoker) {
+    public boolean log(String message) {
         Log log = new Log();
         log.setContent(message);
-        log.setClassInvoker(classInvoker);
-        log.setMethodInvoker(methodInvoker);
         return this.save(log);
     }
 }
