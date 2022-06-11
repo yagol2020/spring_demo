@@ -1,0 +1,31 @@
+version: '3'
+services:
+  yagol-mysql:
+    container_name: yagol-mysql
+    image: arm64v8/mysql:8.0-oracle
+    environment:
+      MYSQL_ROOT_PASSWORD: 'MYSQLPASSWD@123!'
+      MYSQL_DATABASE: 'yagolxyz'
+      TZ: 'Asia/Shanghai'
+    expose:
+      - '9036'
+    volumes:
+      - ~/.yagolxyz/mysql/mysql_data:/var/lib/mysql
+    restart: always
+  yagol-server:
+    container_name: yagol-server
+    image: maven:3.8.5-eclipse-temurin-17
+    working_dir: /yagolxyz
+    volumes:
+      - ./:/yagolxyz
+      - ~/.m2:/root/.m2
+    expose:
+      - '9080'
+    command:
+      - 'mvn'
+      - 'clean'
+      - 'spring-boot:run'
+      - '-Dspring-boot.run.profiles=docker'
+    depends_on:
+      - yagol-mysql
+    restart: always
